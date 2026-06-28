@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <!-- Outer glow -->
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"  stop-color="#c084fc" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#7e14ff" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Bolt fill: deep purple core fading to bright violet -->
+    <linearGradient id="bolt" x1="0.6" y1="0" x2="0.3" y2="1">
+      <stop offset="0%"   stop-color="#fde68a"/>
+      <stop offset="28%"  stop-color="#c084fc"/>
+      <stop offset="100%" stop-color="#7e14ff"/>
+    </linearGradient>
+    <!-- Inner highlight for the top tip -->
+    <filter id="blur-glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="1.6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Soft background glow circle -->
+  <circle cx="16" cy="16" r="15" fill="url(#glow)"/>
+
+  <!-- Lightning bolt — hand-tuned for crisp 32 px rendering          -->
+  <!-- Upper half: top-right slant down to the waist                   -->
+  <!-- Lower half: waist continuing to bottom-left tip                 -->
+  <polygon
+    points="19,2 9,17 15.5,17 13,30 23,15 16.5,15"
+    fill="url(#bolt)"
+    filter="url(#blur-glow)"
+  />
+
+  <!-- Bright white core streak for energy feel -->
+  <polygon
+    points="18,4 13.5,15.5 16.5,15.5"
+    fill="white"
+    opacity="0.55"
+  />
+</svg>
